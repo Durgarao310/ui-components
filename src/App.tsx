@@ -36,6 +36,12 @@ function App() {
     setTimeout(() => setLoading(false), 3000);
   };
 
+  const buttonGroupItems = [
+    { id: 'left', text: 'Left', onClick: () => console.log('Left clicked') },
+    { id: 'center', text: 'Center', onClick: () => console.log('Center clicked') },
+    { id: 'right', text: 'Right', onClick: () => console.log('Right clicked') }
+  ];
+
   return (
     <div className="p-8 space-y-8 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Enhanced UI Component Library</h1>
@@ -53,8 +59,7 @@ function App() {
       <div>
         <h2 className="text-xl font-semibold mb-4">ButtonGroup Component</h2>
         <ButtonGroup
-          mode="single"
-          items={['Left', 'Center', 'Right']}
+          items={buttonGroupItems}
           onSelectionChange={(selected) => console.log('Selected:', selected)}
         />
       </div>
@@ -66,12 +71,10 @@ function App() {
           <div>
             <h3 className="text-lg font-medium mb-3">Basic Variants</h3>
             <div className="flex gap-2 flex-wrap">
-              <Button>Default</Button>
-              <Button variant="destructive">Destructive</Button>
-              <Button variant="outline">Outline</Button>
+              <Button>Default (Primary)</Button>
               <Button variant="secondary">Secondary</Button>
+              <Button variant="outline">Outline</Button>
               <Button variant="ghost">Ghost</Button>
-              <Button variant="link">Link</Button>
             </div>
           </div>
 
@@ -79,9 +82,9 @@ function App() {
             <h3 className="text-lg font-medium mb-3">With Icons</h3>
             <div className="flex gap-2 flex-wrap">
               <Button iconBefore={<PlusIcon />}>Add Item</Button>
-              <Button variant="destructive" iconBefore={<TrashIcon />}>Delete</Button>
+              <Button variant="secondary" iconBefore={<TrashIcon />}>Delete</Button>
               <Button variant="outline" iconAfter={<DownloadIcon />}>Download</Button>
-              <Button variant="secondary" iconBefore={<PlusIcon />} iconAfter={<DownloadIcon />}>
+              <Button variant="ghost" iconBefore={<PlusIcon />} iconAfter={<DownloadIcon />}>
                 Both Icons
               </Button>
             </div>
@@ -106,7 +109,7 @@ function App() {
             <h3 className="text-lg font-medium mb-3">Disabled States</h3>
             <div className="flex gap-2 flex-wrap">
               <Button disabled>Disabled Default</Button>
-              <Button disabled variant="destructive" iconBefore={<TrashIcon />}>
+              <Button disabled variant="secondary" iconBefore={<TrashIcon />}>
                 Disabled with Icon
               </Button>
               <Button disabled variant="outline">
@@ -119,9 +122,8 @@ function App() {
             <h3 className="text-lg font-medium mb-3">Sizes</h3>
             <div className="flex gap-2 items-center flex-wrap">
               <Button size="sm" iconBefore={<PlusIcon />}>Small</Button>
-              <Button iconBefore={<PlusIcon />}>Default</Button>
+              <Button size="md" iconBefore={<PlusIcon />}>Medium</Button>
               <Button size="lg" iconBefore={<PlusIcon />}>Large</Button>
-              <Button size="icon" iconBefore={<PlusIcon />} />
             </div>
           </div>
         </div>
