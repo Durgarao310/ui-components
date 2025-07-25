@@ -8,10 +8,11 @@ A modern React UI component library built with TypeScript and Tailwind CSS v4.
 npm install @durgarao310/ui-components
 ```
 
-## Setup
+## Quick Setup
 
-### Option 1: Auto-Import (Recommended)
-The CSS is automatically imported when you import any component:
+⚠️ **Important**: This library requires Tailwind CSS to be configured in your consuming app. See [SETUP.md](./SETUP.md) for detailed setup instructions.
+
+### Basic Usage
 
 ```tsx
 import { Button, Input } from '@durgarao310/ui-components';

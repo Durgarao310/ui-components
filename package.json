@@ -1,7 +1,7 @@
 {
   "name": "@durgarao310/ui-components",
   "private": false,
-  "version": "0.1.8",
+  "version": "0.2.0",
   "type": "module",
   "description": "A modern React UI component library built with TypeScript and Tailwind CSS",
   "main": "./dist/index.js",
@@ -12,7 +12,8 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./styles": "./dist/styles.css"
+    "./styles": "./dist/styles.css",
+    "./tailwind": "./dist/tailwind-preset.js"
   },
   "files": [
     "dist"
@@ -39,17 +40,23 @@
     "prepublishOnly": "npm run build:lib"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.11",
-    "tw-animate-css": "^1.3.6"
+    "tailwind-merge": "^3.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tailwindcss": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": false
+    }
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@tailwindcss/vite": "^4.1.11",
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -58,6 +65,10 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11",
+    "tw-animate-css": "^1.3.6",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",

@@ -17,17 +17,19 @@ export default defineConfig(({ mode }) => {
   if (mode === 'lib') {
     return {
       ...commonConfig,
+      plugins: [react()], // Remove tailwindcss plugin for library build
       build: {
         lib: {
           entry: {
             index: './src/index.ts',
-            styles: './src/styles.ts'
+            styles: './src/styles.ts',
+            'tailwind-preset': './src/tailwind-preset.js'
           },
           name: 'UIComponents',
           formats: ['es']
         },
         rollupOptions: {
-          external: ['react', 'react-dom', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          external: ['react', 'react-dom', 'class-variance-authority', 'clsx', 'tailwind-merge', 'tailwindcss', '@tailwindcss/vite'],
           output: {
             entryFileNames: '[name].js',
             assetFileNames: (assetInfo) => {

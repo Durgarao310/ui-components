@@ -7,9 +7,9 @@ export const buttonGroupVariants = cva(
   {
     variants: {
       variant: {
-        default: "rounded-md shadow-sm",
-        outline: "rounded-md",
-        ghost: "rounded-md",
+        default: "rounded-lg",
+        outline: "rounded-lg",
+        ghost: "rounded-lg",
       },
       size: {
         sm: "text-sm",
@@ -29,9 +29,9 @@ export const buttonGroupItemVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring",
-        outline: "border border-border text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring",
-        ghost: "text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring",
+        default: "bg-background border border-border text-foreground hover:bg-accent focus-visible:ring-ring",
+        outline: "border border-border text-foreground hover:bg-accent focus-visible:ring-ring",
+        ghost: "text-foreground hover:bg-accent focus-visible:ring-ring",
       },
       size: {
         sm: "px-3 py-1.5 text-sm",
@@ -54,7 +54,7 @@ export const buttonGroupItemVariants = cva(
       {
         variant: "default",
         position: "first",
-        className: "rounded-l-md border-r-0",
+        className: "rounded-l-lg border-r-0",
       },
       {
         variant: "default",
@@ -64,18 +64,18 @@ export const buttonGroupItemVariants = cva(
       {
         variant: "default",
         position: "last",
-        className: "rounded-r-md",
+        className: "rounded-r-lg",
       },
       {
         variant: "default",
         position: "only",
-        className: "rounded-md",
+        className: "rounded-lg",
       },
       // Outline variant position styles
       {
         variant: "outline",
         position: "first",
-        className: "rounded-l-md border-r-0",
+        className: "rounded-l-lg border-r-0",
       },
       {
         variant: "outline",
@@ -85,18 +85,18 @@ export const buttonGroupItemVariants = cva(
       {
         variant: "outline",
         position: "last",
-        className: "rounded-r-md",
+        className: "rounded-r-lg",
       },
       {
         variant: "outline",
         position: "only",
-        className: "rounded-md border",
+        className: "rounded-lg border",
       },
       // Ghost variant (no borders)
       {
         variant: "ghost",
         position: "first",
-        className: "rounded-l-md",
+        className: "rounded-l-lg",
       },
       {
         variant: "ghost",
@@ -106,12 +106,12 @@ export const buttonGroupItemVariants = cva(
       {
         variant: "ghost",
         position: "last",
-        className: "rounded-r-md",
+        className: "rounded-r-lg",
       },
       {
         variant: "ghost",
         position: "only",
-        className: "rounded-md",
+        className: "rounded-lg",
       },
       // Active states
       {
