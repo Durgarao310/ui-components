@@ -45,7 +45,7 @@ export const buttonGroupItemVariants = cva(
         only: "",
       },
       active: {
-        true: "",
+        true: "bg-primary text-primary-foreground hover:bg-primary/90",
         false: "",
       },
     },
@@ -112,22 +112,6 @@ export const buttonGroupItemVariants = cva(
         variant: "ghost",
         position: "only",
         className: "",
-      },
-      // Active states
-      {
-        variant: "default",
-        active: true,
-        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
-      },
-      {
-        variant: "outline",
-        active: true,
-        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
-      },
-      {
-        variant: "ghost",
-        active: true,
-        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
       },
     ],
     defaultVariants: {
