@@ -174,9 +174,7 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement>, 
    * Whether multiple buttons can be active at once
    * @default false
    */
-  multiple?: boolean;
   /**
    * Callback when button selection changes
    */
-  onSelectionChange?: (activeIds: string[]) => void;
 }

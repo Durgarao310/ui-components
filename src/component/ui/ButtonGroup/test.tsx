@@ -4,73 +4,88 @@ import type { ButtonGroupItem } from "./types";
 
 // Example usage of the ButtonGroup component
 export const ButtonGroupExamples: React.FC = () => {
-  const [selectedSingle, setSelectedSingle] = useState<string[]>([]);
-  const [selectedMultiple, setSelectedMultiple] = useState<string[]>([]);
 
-  const basicItems: ButtonGroupItem[] = [
+  const [basicItems, setBasicItems] = useState<ButtonGroupItem[]>([
     {
       id: "left",
       text: "Left",
-      onClick: () => console.log("Left clicked"),
+      onClick: () => handleBasicClick("left"),
     },
     {
       id: "center",
       text: "Center",
-      onClick: () => console.log("Center clicked"),
+      onClick: () => handleBasicClick("center"),
       active: true,
     },
     {
       id: "right",
       text: "Right",
-      onClick: () => console.log("Right clicked"),
+      onClick: () => handleBasicClick("right"),
     },
-  ];
+  ]);
 
-  const toolbarItems: ButtonGroupItem[] = [
+  const handleBasicClick = (id: string) => {
+    setBasicItems(prev => prev.map(item => ({...item, active: item.id === id})))
+  }
+
+  const [toolbarItems, setToolbarItems] = useState<ButtonGroupItem[]>([
     {
       id: "bold",
       text: "Bold",
-      onClick: () => console.log("Bold clicked"),
+      onClick: () => handleToolbarClick("bold"),
       icon: <strong>B</strong>,
     },
     {
       id: "italic",
       text: "Italic",
-      onClick: () => console.log("Italic clicked"),
+      onClick: () => handleToolbarClick("italic"),
       icon: <em>I</em>,
     },
     {
       id: "underline",
       text: "Underline",
-      onClick: () => console.log("Underline clicked"),
+      onClick: () => handleToolbarClick("underline"),
       icon: <u>U</u>,
     },
-  ];
+  ]);
 
-  const filterItems: ButtonGroupItem[] = [
+  const handleToolbarClick = (id: string) => {
+    setToolbarItems(prev => prev.map(item => {
+      if (item.id === id) {
+        return {...item, active: !item.active}
+      }
+      return item;
+    }))
+  }
+
+  const [filterItems, setFilterItems] = useState<ButtonGroupItem[]>([
     {
       id: "all",
       text: "All",
-      onClick: () => console.log("All clicked"),
+      onClick: () => handleFilterClick("all"),
       active: true,
     },
     {
       id: "active",
       text: "Active",
-      onClick: () => console.log("Active clicked"),
+      onClick: () => handleFilterClick("active"),
     },
     {
       id: "completed",
       text: "Completed",
-      onClick: () => console.log("Completed clicked"),
+      onClick: () => handleFilterClick("completed"),
     },
     {
       id: "archived",
       text: "Archived",
-      onClick: () => console.log("Archived clicked"),
+      onClick: () => handleFilterClick("archived"),
       disabled: true,
     },
-  ];
+  ]);
+
+  const handleFilterClick = (id: string) => {
+    setFilterItems(prev => prev.map(item => ({...item, active: item.id === id})))
+  }
 
   return (
     <div className="p-6 space-y-8">
@@ -81,10 +96,9 @@ export const ButtonGroupExamples: React.FC = () => {
           <h3 className="text-lg font-medium text-gray-900 mb-3">Basic Usage (Single Selection)</h3>
           <ButtonGroup
             items={basicItems}
-            onSelectionChange={setSelectedSingle}
           />
           <p className="text-sm text-gray-600 mt-2">
-            Selected: {selectedSingle.join(", ") || "None"}
+            Selected: {basicItems.find(item => item.active)?.id || "None"}
           </p>
         </div>
 
@@ -92,12 +106,10 @@ export const ButtonGroupExamples: React.FC = () => {
           <h3 className="text-lg font-medium text-gray-900 mb-3">Multiple Selection</h3>
           <ButtonGroup
             items={toolbarItems}
-            multiple
-            onSelectionChange={setSelectedMultiple}
             variant="outline"
           />
           <p className="text-sm text-gray-600 mt-2">
-            Selected: {selectedMultiple.join(", ") || "None"}
+            Selected: {toolbarItems.filter(item => item.active).map(item => item.id).join(", ") || "None"}
           </p>
         </div>
 

@@ -36,11 +36,17 @@ function App() {
     setTimeout(() => setLoading(false), 3000);
   };
 
-  const buttonGroupItems = [
-    { id: 'left', text: 'Left', onClick: () => console.log('Left clicked') },
-    { id: 'center', text: 'Center', onClick: () => console.log('Center clicked') },
-    { id: 'right', text: 'Right', onClick: () => console.log('Right clicked') }
-  ];
+  const [buttonGroupItems, setButtonGroupItems] = useState([
+    { id: 'left', text: 'Left', onClick: () => handleButtonGroupClick('left'), active: true },
+    { id: 'center', text: 'Center', onClick: () => handleButtonGroupClick('center') },
+    { id: 'right', text: 'Right', onClick: () => handleButtonGroupClick('right') }
+  ]);
+
+  const handleButtonGroupClick = (id: string) => {
+    setButtonGroupItems(prevItems => 
+      prevItems.map(item => ({ ...item, active: item.id === id }))
+    );
+  };
 
   return (
     <div className="p-8 space-y-8 max-w-4xl mx-auto">
@@ -60,7 +66,6 @@ function App() {
         <h2 className="text-xl font-semibold mb-4">ButtonGroup Component</h2>
         <ButtonGroup
           items={buttonGroupItems}
-          onSelectionChange={(selected) => console.log('Selected:', selected)}
         />
       </div>
 
