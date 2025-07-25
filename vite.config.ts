@@ -19,24 +19,22 @@ export default defineConfig(({ mode }) => {
       ...commonConfig,
       build: {
         lib: {
-          entry: './src/index.ts',
+          entry: {
+            index: './src/index.ts',
+            styles: './src/styles.ts'
+          },
           name: 'UIComponents',
-          fileName: 'index',
           formats: ['es']
         },
         rollupOptions: {
           external: ['react', 'react-dom', 'class-variance-authority', 'clsx', 'tailwind-merge'],
           output: {
-            globals: {
-              react: 'React',
-              'react-dom': 'ReactDOM',
-              'class-variance-authority': 'cva',
-              'clsx': 'clsx',
-              'tailwind-merge': 'twMerge'
-            },
+            entryFileNames: '[name].js',
             assetFileNames: (assetInfo) => {
-              if (assetInfo.name === 'style.css') return 'style.css';
-              return assetInfo.name || 'assets/[name][extname]';
+              if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+                return 'styles.css';
+              }
+              return 'assets/[name][extname]';
             }
           }
         }

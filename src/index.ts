@@ -1,6 +1,3 @@
-// Import styles
-import './index.css';
-
 // Export all components
 export { Button } from './component/ui/Button';
 export { Input } from './component/ui/Input';
