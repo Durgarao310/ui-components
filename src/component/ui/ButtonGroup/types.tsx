@@ -3,12 +3,12 @@ import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
 export const buttonGroupVariants = cva(
-  "inline-flex items-center",
+  "inline-flex items-center overflow-hidden",
   {
     variants: {
       variant: {
-        default: "rounded-lg",
-        outline: "rounded-lg",
+        default: "rounded-lg bg-muted border border-border",
+        outline: "rounded-lg bg-background border border-border",
         ghost: "rounded-lg",
       },
       size: {
@@ -25,13 +25,13 @@ export const buttonGroupVariants = cva(
 );
 
 export const buttonGroupItemVariants = cva(
-  "relative inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 border-0",
   {
     variants: {
       variant: {
-        default: "bg-background border border-border text-foreground hover:bg-accent focus-visible:ring-ring",
-        outline: "border border-border text-foreground hover:bg-accent focus-visible:ring-ring",
-        ghost: "text-foreground hover:bg-accent focus-visible:ring-ring",
+        default: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
+        outline: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
+        ghost: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
       },
       size: {
         sm: "px-3 py-1.5 text-sm",
@@ -50,79 +50,79 @@ export const buttonGroupItemVariants = cva(
       },
     },
     compoundVariants: [
-      // Default variant position styles
+      // Default variant position styles - add separators between buttons
       {
         variant: "default",
         position: "first",
-        className: "rounded-l-lg border-r-0",
+        className: "",
       },
       {
         variant: "default",
         position: "middle",
-        className: "border-r-0 rounded-none",
+        className: "border-l border-border/50",
       },
       {
         variant: "default",
         position: "last",
-        className: "rounded-r-lg",
+        className: "border-l border-border/50",
       },
       {
         variant: "default",
         position: "only",
-        className: "rounded-lg",
+        className: "",
       },
-      // Outline variant position styles
+      // Outline variant position styles - add separators between buttons
       {
         variant: "outline",
         position: "first",
-        className: "rounded-l-lg border-r-0",
+        className: "",
       },
       {
         variant: "outline",
         position: "middle",
-        className: "border-r-0 rounded-none",
+        className: "border-l border-border/50",
       },
       {
         variant: "outline",
         position: "last",
-        className: "rounded-r-lg",
+        className: "border-l border-border/50",
       },
       {
         variant: "outline",
         position: "only",
-        className: "rounded-lg border",
+        className: "",
       },
-      // Ghost variant (no borders)
+      // Ghost variant (no separators needed)
       {
         variant: "ghost",
         position: "first",
-        className: "rounded-l-lg",
+        className: "",
       },
       {
         variant: "ghost",
         position: "middle",
-        className: "rounded-none",
+        className: "",
       },
       {
         variant: "ghost",
         position: "last",
-        className: "rounded-r-lg",
+        className: "",
       },
       {
         variant: "ghost",
         position: "only",
-        className: "rounded-lg",
+        className: "",
       },
       // Active states
       {
         variant: "default",
         active: true,
-        className: "bg-primary text-primary-foreground border-primary hover:bg-primary/90",
+        className: "bg-primary text-primary-foreground hover:bg-primary/90",
       },
       {
         variant: "outline",
         active: true,
-        className: "bg-primary text-primary-foreground border-primary hover:bg-primary/90",
+        className: "bg-primary text-primary-foreground hover:bg-primary/90",
       },
       {
         variant: "ghost",
