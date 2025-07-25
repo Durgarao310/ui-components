@@ -117,17 +117,17 @@ export const buttonGroupItemVariants = cva(
       {
         variant: "default",
         active: true,
-        className: "bg-primary text-primary-foreground hover:bg-primary/90",
+        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
       },
       {
         variant: "outline",
         active: true,
-        className: "bg-primary text-primary-foreground hover:bg-primary/90",
+        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
       },
       {
         variant: "ghost",
         active: true,
-        className: "bg-primary text-primary-foreground hover:bg-primary/90",
+        className: "!bg-primary text-primary-foreground hover:!bg-primary/90",
       },
     ],
     defaultVariants: {
