@@ -29,9 +29,9 @@ export const buttonGroupItemVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
-        outline: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
-        ghost: "bg-transparent text-foreground hover:bg-accent focus-visible:ring-ring",
+        default: "text-foreground hover:bg-accent focus-visible:ring-ring",
+        outline: "text-foreground hover:bg-accent focus-visible:ring-ring",
+        ghost: "text-foreground hover:bg-accent focus-visible:ring-ring",
       },
       size: {
         sm: "px-3 py-1.5 text-sm",
@@ -46,7 +46,7 @@ export const buttonGroupItemVariants = cva(
       },
       active: {
         true: "bg-primary text-primary-foreground hover:bg-primary/90",
-        false: "",
+        false: "bg-transparent",
       },
     },
     compoundVariants: [
