@@ -33,6 +33,10 @@ export default defineConfig(({ mode }) => {
               'class-variance-authority': 'cva',
               'clsx': 'clsx',
               'tailwind-merge': 'twMerge'
+            },
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name === 'style.css') return 'style.css';
+              return assetInfo.name || 'assets/[name][extname]';
             }
           }
         }

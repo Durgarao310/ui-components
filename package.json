@@ -12,7 +12,7 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./styles": "./dist/style.css"
+    "./styles": "./dist/index.css"
   },
   "files": [
     "dist"
