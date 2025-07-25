@@ -45,7 +45,7 @@ export const buttonGroupItemVariants = cva(
         only: "",
       },
       active: {
-        true: "bg-blue-600 text-white hover:bg-blue-700",
+        true: "bg-primary text-primary-foreground hover:bg-primary/90",
         false: "bg-transparent",
       },
     },
