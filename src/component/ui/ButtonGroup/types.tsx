@@ -45,7 +45,7 @@ export const buttonGroupItemVariants = cva(
         only: "",
       },
       active: {
-        true: "bg-primary text-primary-foreground hover:bg-primary/90",
+        true: "bg-blue-600 text-white hover:bg-blue-700",
         false: "bg-transparent",
       },
     },
@@ -171,9 +171,6 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement>, 
    */
   size?: "sm" | "md" | "lg";
   /**
-   * Whether multiple buttons can be active at once
-   * @default false
-   */
   /**
    * Callback when button selection changes
    */
